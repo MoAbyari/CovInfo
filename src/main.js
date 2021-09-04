@@ -5,6 +5,11 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+import SuiVue from 'semantic-ui-vue';
+Vue.use(SuiVue);
+
+
+
 new Vue({
   router,
   store,
