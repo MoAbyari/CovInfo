@@ -2,20 +2,20 @@
     <div>
         <Header />
         <hr>
-        <CasesICU />
+        <CasesInfo />
 
     </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
-import CasesICU from '@/components/CasesICU.vue';
+import CasesInfo from '@/components/CasesInfo.vue';
 
 export default {
     name: 'Home',
     components: {
         Header,
-        CasesICU,
+        CasesInfo,
     }
 }
 </script>
