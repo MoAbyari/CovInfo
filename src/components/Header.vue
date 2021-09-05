@@ -1,12 +1,28 @@
 <template lang='html'>
     <div class="info-row">
         <sui-statistics-group>
-            <sui-statistic in-group color="red">
-                <sui-statistic-value>
-                    27
+            <sui-statistic in-group color="yellow">
+                <sui-statistic-value style="font-size:2rem !important">
+                    {{ info.Cases }}
                 </sui-statistic-value>
                 <sui-statistic-label>
-                    Total cases
+                    total cases
+                </sui-statistic-label>
+            </sui-statistic>
+            <sui-statistic in-group color="blue">
+                <sui-statistic-value style="font-size:2rem !important">
+                    {{ info.NewCases }}
+                </sui-statistic-value>
+                <sui-statistic-label>
+                    new cases
+                </sui-statistic-label>
+            </sui-statistic>
+            <sui-statistic in-group color="orange">
+                <sui-statistic-value style="font-size:2rem !important">
+                    {{ info.Deaths }}
+                </sui-statistic-value>
+                <sui-statistic-label>
+                    total deaths
                 </sui-statistic-label>
             </sui-statistic>
         </sui-statistics-group>
@@ -14,8 +30,20 @@
 </template>
 
 <script>
+
+import { api } from '../helpers/helpers'
+// import { INFO } from '../helpers/constants';
+
 export default {
-    name: 'Header'
+    name: 'Header',
+    data() {
+        return {
+            info: []
+        }
+    },
+    async mounted() {
+        this.info = await api.getInfo();
+    }
 }
 </script>
 
@@ -24,4 +52,5 @@ export default {
     display: flex;
     justify-content: center;
 }
+
 </style>

@@ -9,7 +9,6 @@ import SuiVue from 'semantic-ui-vue';
 Vue.use(SuiVue);
 
 
-
 new Vue({
   router,
   store,
