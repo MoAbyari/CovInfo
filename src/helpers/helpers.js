@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseURL = 'http://localhost:3000/info/'; 
-const baseURL2 = 'http://localhost:3000/info//info/vaccine/';
+const baseURL2 = 'http://localhost:3000/info/vaccine/';
 
 const handleError = (fn) => (...params) =>
     fn(...params).catch((error) => {

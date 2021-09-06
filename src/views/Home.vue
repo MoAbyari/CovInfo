@@ -4,7 +4,7 @@
         <hr>
         <CasesInfo />
         <hr>
-        <VaccinatedChart />
+        <VaccinePieChart />
         <hr>
         <CasesByAgeChart />
 
@@ -14,7 +14,7 @@
 <script>
 import Header from '@/components/Header.vue';
 import CasesInfo from '@/components/CasesInfo.vue';
-import VaccinatedChart from '@/components/VaccinatedChart.vue';
+import VaccinePieChart from '@/components/VaccinePieChart.vue';
 import CasesByAgeChart from '@/components/CasesByAgeChart.vue';
 
 
@@ -23,8 +23,8 @@ export default {
     components: {
         Header,
         CasesInfo,
-        VaccinatedChart,
         CasesByAgeChart,
+        VaccinePieChart,
     }
 }
 </script>
