@@ -8,6 +8,9 @@ Vue.config.productionTip = false
 import SuiVue from 'semantic-ui-vue';
 Vue.use(SuiVue);
 
+import 'chart.js';
+
+
 
 new Vue({
   router,

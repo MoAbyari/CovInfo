@@ -5,7 +5,7 @@
     <div class="content">
       <img class="right floated mini ui image" src="../assets/Hospital.png">
       <div class="header">
-        {{concurrentHospitalisations}}
+        {{info.concurrentHospitalisations}}
         <h4>Total Admitted</h4>
       </div>
     </div>
@@ -14,7 +14,7 @@
     <div class="content">
       <img class="right floated mini ui image" src="../assets/ICU.png">
       <div class="header">
-        {{concurrentHospitalisationsIcu}}
+        {{info.concurrentHospitalisationsIcu}}
         <h4>Total Cases In ICU</h4>
       </div>
     </div>
@@ -24,14 +24,16 @@
 </template>
 
 <script>
-
+import { api } from '../helpers/helpers';
 export default {
     name: 'CasesInfo',
     data(){
       return {
-          concurrentHospitalisations: 1036,
-          concurrentHospitalisationsIcu: 173
+        info:[]
         }
+    },
+    async mounted() {
+      this.info = await api.getInfo();
     }
 }
 </script>
