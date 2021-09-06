@@ -5,6 +5,8 @@
         <CasesInfo />
         <hr>
         <VaccinatedChart />
+        <hr>
+        <CasesByAgeChart />
 
     </div>
 </template>
@@ -13,6 +15,7 @@
 import Header from '@/components/Header.vue';
 import CasesInfo from '@/components/CasesInfo.vue';
 import VaccinatedChart from '@/components/VaccinatedChart.vue';
+import CasesByAgeChart from '@/components/CasesByAgeChart.vue';
 
 export default {
     name: 'Home',
@@ -20,6 +23,7 @@ export default {
         Header,
         CasesInfo,
         VaccinatedChart,
+        CasesByAgeChart,
     }
 }
 </script>
