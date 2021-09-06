@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000'; // trailing slash reuired
+const baseURL = 'http://localhost:3000'; 
 
 const handleError = (fn) => (...params) =>
     fn(...params).catch((error) => {
@@ -18,7 +18,7 @@ export const api = {
     }),
 
     getVaccineInfo: handleError(async () => {
-        const res = await axios.get(baseURL2);
+        const res = await axios.get(baseURL + '/vaccine');
         return res.data;
     })
 }
