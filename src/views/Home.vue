@@ -4,7 +4,7 @@
         <hr>
         <CasesInfo />
         <hr>
-        <VaccinatedChart />
+        <VaccinePieChart />
         <hr>
         <CasesByAgeChart />
         <hr>
@@ -16,18 +16,19 @@
 <script>
 import Header from '@/components/Header.vue';
 import CasesInfo from '@/components/CasesInfo.vue';
-import VaccinatedChart from '@/components/VaccinatedChart.vue';
+import VaccinePieChart from '@/components/VaccinePieChart.vue';
 import CasesByAgeChart from '@/components/CasesByAgeChart.vue';
 import LeafletMap from '@/components/LeafletMap.vue';
+
 
 export default {
     name: 'Home',
     components: {
         Header,
         CasesInfo,
-        VaccinatedChart,
         CasesByAgeChart,
-        LeafletMap
+        LeafletMap,
+        VaccinePieChart,
     }
 }
 </script>
