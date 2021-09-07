@@ -6,12 +6,14 @@
 
 <script>
 import "leaflet/dist/leaflet.css";
+import { api } from '../helpers/helpers';
 import L from "leaflet";
 
 export default {
     name: "Map",
     data() {
         return{
+            NSWGeoJson: [],
             center: [-32.5098,147.4805]
         }
     },
@@ -27,9 +29,12 @@ export default {
                     id: "moabyari.do755eqs",
                     accessToken: "pk.eyJ1IjoibW9hYnlhcmkiLCJhIjoiY2t0M3k3cngzMGNlcDJvbzJiZjByNHpydyJ9.UsxLK_4u6Ei3Ne_0gMUdrw",
                 }).addTo(mapDiv);
-        }
+            L.geoJson(this.NSWGeoJson).addTo(mapDiv);
+
+        },
     },
-    mounted() {
+    async mounted() {
+        this.NSWGeoJson = await api.getNSWGeoJson();
         this.setupLeafletMap();
     }
 };
@@ -37,8 +42,8 @@ export default {
 
 <style scoped>
     #mapContainer {
-        margin: 0 Auto;
-        width: 700px;
+        width: 800px;
         height: 90vh;
+        margin: 0 auto;
     }
 </style>
