@@ -23,29 +23,26 @@ export default {
     },
     methods: {
         getColor(d) {
-                return  d > 1000 ? '#800026' :
-                        d > 500  ? '#BD0026' :
-                        d > 200  ? '#E31A1C' :
-                        d > 100  ? '#FC4E2A' :
-                        d > 50   ? '#FD8D3C' :
-                        d > 20   ? '#FEB24C' :
-                        d > 10   ? '#FED976' :
-                                    '#FFFFFF';
+                return  d > 1000 ? '#3D2807' :
+                        d > 500  ? '#bd0026' :
+                        d > 100  ? '#fb6a4a' :
+                        d > 50   ? '#fe9929' :
+                        d > 9   ?   'yellow' :
+                                    '#f0f0f0';
         },
 
         styleMap(feature){
             if (feature?.properties.LGA_CODE19) {
                 const lgaCode = feature.properties.LGA_CODE19;
                 const numberOfCasesByLga = _.find(this.dailyCasesInState, {lga_code: lgaCode});
-                console.log("number of cases by lga", numberOfCasesByLga);
             
                 const totalCases = numberOfCasesByLga?.total_cases || 0;
-                console.log("total cases", totalCases);
-                const color = totalCases ? this.getColor(totalCases) : 'WHITE';
+                const color = this.getColor(totalCases);
                 return { 
-                    color: color,
-                    weight: 0,
-                    opacity: 1,
+                    color: "black",
+                    fillColor: color,
+                    weight: 1,
+                    // opacity: 0.5,
                     fillOpacity: 1
                 };
             } else {
@@ -58,7 +55,7 @@ export default {
                  const numberOfCasesByLga = _.find(this.dailyCasesInState, {lga_code: feature.properties.LGA_CODE19});
 
                 if (numberOfCasesByLga) {
-                    layer.bindPopup(`${feature.properties.LGA_NAME19}, Total cases: ${numberOfCasesByLga.total_cases}`);
+                    layer.bindPopup(`${feature.properties.LGA_NAME19.bold()}, Total cases: ${numberOfCasesByLga.total_cases}`);
                     layer.on('mouseover', () => { layer.openPopup(); });
                     layer.on('mouseout', () => { layer.closePopup(); });
                 }
