@@ -14,12 +14,19 @@ export default {
     data() {
         return{
             NSWGeoJson: [],
-            center: [-32.5098,147.4805]
+            dailyCasesInState: [],
+            center: [-32.5098, 147.4805],
         }
     },
     methods: {
+        styleMap(features){
+            const postCode = features.properties.POA_CODE16;
+            // console.log(">>>>>>>>>>postecode", postCode);
+            const color = postCode === "2000" ? "red" : "blue";
+            return { color: color };
+        },
         setupLeafletMap: function () {
-            const mapDiv = L.map("mapContainer").setView(this.center, 13);
+            const mapDiv = L.map("mapContainer").setView(this.center, 7);
             L.tileLayer(
                 "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
                 {
@@ -27,15 +34,15 @@ export default {
                     'Map data (c) <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
                     maxZoom: 16,
                     id: "mapbox/streets-v11",
-                    accessToken: "XXX",
+                    accessToken: "pk.eyJ1IjoibW9hYnlhcmkiLCJhIjoiY2t0M3k3cngzMGNlcDJvbzJiZjByNHpydyJ9.UsxLK_4u6Ei3Ne_0gMUdrw",
                 }).addTo(mapDiv);
 
-            L.geoJson(this.NSWGeoJson).addTo(mapDiv);
-
+            L.geoJson(this.NSWGeoJson, {style: this.styleMap}).addTo(mapDiv);
         },
     },
     async mounted() {
         this.NSWGeoJson = await api.getNSWGeoJson();
+        this.dailyCasesInState = await api.getCasesInState();
         this.setupLeafletMap();
     }
 };
@@ -43,7 +50,7 @@ export default {
 
 <style scoped>
     #mapContainer {
-        width: 800px;
+        width: 700px;
         height: 90vh;
         margin: 0 auto;
     }

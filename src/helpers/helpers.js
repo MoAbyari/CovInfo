@@ -23,13 +23,18 @@ export const api = {
     }),
 
     getCasesInState: handleError(async () => {
-        const res = await axios.get(baseURL + '/lga-daily-cases');
+        const res = await axios.get(baseURL + '/postcode-daily-cases');
         return res.data;
     }),
 
     getNSWGeoJson: handleError(async () => {
-        const res = await axios.get('https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/suburb-10-nsw.geojson');
+        const res = await axios.get(baseURL + '/nsw-geojson');
         return res.data;
     }),
+
+    // getNSWGeoJson: handleError(async () => {
+    //     const res = await axios.get('https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/suburb-10-nsw.geojson');
+    //     return res.data;
+    // }),
 }
 
