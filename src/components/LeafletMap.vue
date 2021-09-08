@@ -48,6 +48,7 @@ export default {
                 return { color: "white" };
             }
         },
+
         onEachFeature(feature, layer) {
             if (feature?.properties.LGA_CODE19) {
                  const numberOfCasesByLga = _.find(this.dailyCasesInState, {lga_code: feature.properties.LGA_CODE19});
@@ -59,10 +60,11 @@ export default {
                 }
             }
         },
+        
         setupLeafletMap: function () {
             const mapDiv = L.map("mapContainer").setView(this.center, 8);
             L.tileLayer(
-                "https://api.mapbox.com/styles/v1/moabyari/ckt9sc7n2689r18pgaswrn4nl/tiles/{z}/{x}/{y}?access_token={accessToken}",
+                "https://api.mapbox.com/styles/v1/moabyari/cktbirbqp2m7v17o50gpwe5x6/tiles/{z}/{x}/{y}?access_token={accessToken}",
                 {
                     attribution:
                     'Map data (c) <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
