@@ -28,8 +28,9 @@ export const api = {
     }),
 
     getNSWGeoJson: handleError(async () => {
-        const res = await axios.get('https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/suburb-10-nsw.geojson');
+        const res = await axios.get('https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/suburb-2-nsw.geojson');
         return res.data;
     }),
 }
+
 

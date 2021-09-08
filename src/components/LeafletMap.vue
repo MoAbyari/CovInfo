@@ -29,13 +29,16 @@ export default {
                     id: "moabyari.do755eqs",
                     accessToken: "pk.eyJ1IjoibW9hYnlhcmkiLCJhIjoiY2t0M3k3cngzMGNlcDJvbzJiZjByNHpydyJ9.UsxLK_4u6Ei3Ne_0gMUdrw",
                 }).addTo(mapDiv);
+
             L.geoJson(this.NSWGeoJson).addTo(mapDiv);
+            
 
         },
     },
     async mounted() {
         this.NSWGeoJson = await api.getNSWGeoJson();
         this.setupLeafletMap();
+        this.styleMap();
     }
 };
 </script>
