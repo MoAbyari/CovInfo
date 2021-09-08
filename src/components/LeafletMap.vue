@@ -20,10 +20,17 @@ export default {
     },
     methods: {
         styleMap(features){
-            const postCode = features.properties.POA_CODE16;
+            const lgaCode = features.properties.LGA_CODE19;
             // console.log(">>>>>>>>>>postecode", postCode);
-            const color = postCode === "2000" ? "red" : "blue";
+            const color = lgaCode === "10500" ? "red" : "blue";
             return { color: color };
+        },
+        onEachFeature(feature, layer) {
+            if (feature.properties && feature.properties.LGA_NAME19) {
+                layer.bindPopup(feature.properties.LGA_NAME19);
+                layer.on('mouseover', () => { layer.openPopup(); });
+                layer.on('mouseout', () => { layer.closePopup(); });
+            }
         },
         setupLeafletMap: function () {
             const mapDiv = L.map("mapContainer").setView(this.center, 7);
@@ -37,7 +44,7 @@ export default {
                     accessToken: "pk.eyJ1IjoibW9hYnlhcmkiLCJhIjoiY2t0M3k3cngzMGNlcDJvbzJiZjByNHpydyJ9.UsxLK_4u6Ei3Ne_0gMUdrw",
                 }).addTo(mapDiv);
 
-            L.geoJson(this.NSWGeoJson, {style: this.styleMap}).addTo(mapDiv);
+            L.geoJson(this.NSWGeoJson, {onEachFeature: this.onEachFeature, style: this.styleMap}).addTo(mapDiv);
         },
     },
     async mounted() {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Bar Chart</h3>
+    <h3>Lives lost by age group</h3>
     <bar-chart v-if="loaded" :chartData="chartData"></bar-chart>
   </div>
 </template>
@@ -10,7 +10,7 @@ import BarChart from './BarChart.vue';
 import { api } from '../helpers/helpers';
 
 export default {
-  name: 'CasesBarChart',
+  name: 'DeathsBarChart',
   components: { BarChart },
   data: () => ({
     loaded: false,
@@ -19,7 +19,7 @@ export default {
   async mounted () {
     this.loaded = false
     try {
-      const data = await api.getCasesByAge();
+      const data = await api.getDeathsByAge();
       this.chartData = data
       this.loaded = true
     } catch (e) {

@@ -16,7 +16,7 @@ export default {
             borderWidth: 1,
             pointBorderColor: '#2554FF',
             data: casesBySex,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
             borderColor: 'rgb(54, 162, 235)',
           }]
         },

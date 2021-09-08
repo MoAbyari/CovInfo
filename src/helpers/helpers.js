@@ -23,7 +23,12 @@ export const api = {
     }),
 
     getCasesInState: handleError(async () => {
-        const res = await axios.get(baseURL + '/postcode-daily-cases');
+        const res = await axios.get(baseURL + '/lga-daily-cases');
+        return res.data;
+    }),
+
+    getDeathsByAge: handleError(async () => {
+        const res = await axios.get(baseURL + '/fatalities-by-age');
         return res.data;
     }),
 
