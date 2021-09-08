@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Lives lost by age group</h3>
+    <h2>Lives lost by age group</h2>
     <bar-chart v-if="loaded" :chartData="chartData"></bar-chart>
   </div>
 </template>

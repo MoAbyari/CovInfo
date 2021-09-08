@@ -1,5 +1,6 @@
 <template>
  <div id="container">
+     <h2>Map of NSW COVID-19 case locations</h2>
    <div id="mapContainer"></div>
  </div>
 </template>
@@ -8,6 +9,8 @@
 import "leaflet/dist/leaflet.css";
 import { api } from '../helpers/helpers';
 import L from "leaflet";
+import _ from 'lodash';
+
 
 export default {
     name: "Map",
@@ -15,32 +18,50 @@ export default {
         return{
             NSWGeoJson: [],
             dailyCasesInState: [],
-            center: [-33.8555, 	151.1155],
+            center: [-33.8555, 151.1155],
         }
     },
     methods: {
-        styleMap(){
-            // const lgaCode = features.properties.LGA_CODE19;
-            // // console.log(">>>>>>>>>>postecode", postCode);
-            // const color = lgaCode === "14950" ? "red" : "blue";
-            return { color: 'red' };
+        getColor(d) {
+                return  d > 1000 ? 'red' :
+                        d > 500  ? '#BD0026' :
+                        d > 200  ? '#E31A1C' :
+                        d > 100  ? '#FC4E2A' :
+                        d > 50   ? '#FD8D3C' :
+                        d > 20   ? '#FEB24C' :
+                        d > 10   ? '#FED976' :
+                                    'white';
+        },
+
+        styleMap(feature){
+            if (feature?.properties.LGA_CODE19) {
+                const lgaCode = feature.properties.LGA_CODE19;
+                const numberOfCasesByLga = _.find(this.dailyCasesInState, {lga_code: lgaCode});
+                console.log("number of cases by lga", numberOfCasesByLga);
+            
+                const totalCases = numberOfCasesByLga?.total_cases || 0;
+                console.log("total cases", totalCases);
+                const color = totalCases ? this.getColor(totalCases) : 'brown';
+                return { 
+                    color: color,
+                    weight: 0,
+                    opacity: 1,
+                    fillOpacity: 1
+                };
+            } else {
+                return { color: "white" };
+            }
         },
 
         onEachFeature(feature, layer) {
-        //     let result =
-        //     this.dailyCasesInState.filter(function (object1) {
-        //     return this.NSWGeoJson.features.properties.some(function (object2) {
-        //         if (object1.lga_code === object2.LGA_CODE19){
-        //             return object1.total_cases; 
-        //         } 
-        //     });
-        // });
-           
-            if (feature.properties && feature.properties.LGA_NAME19) {
+            if (feature?.properties.LGA_CODE19) {
+                 const numberOfCasesByLga = _.find(this.dailyCasesInState, {lga_code: feature.properties.LGA_CODE19});
 
-                layer.bindPopup(feature.properties.LGA_NAME19 + feature.properties.LGA_CODE19);
-                layer.on('mouseover', () => { layer.openPopup(); });
-                layer.on('mouseout', () => { layer.closePopup(); });
+                if (numberOfCasesByLga) {
+                    layer.bindPopup(`${feature.properties.LGA_NAME19}, Total cases: ${numberOfCasesByLga.total_cases}`);
+                    layer.on('mouseover', () => { layer.openPopup(); });
+                    layer.on('mouseout', () => { layer.closePopup(); });
+                }
             }
         },
         setupLeafletMap: function () {
@@ -60,7 +81,7 @@ export default {
     },
     async mounted() {
         this.NSWGeoJson = await api.getNSWGeoJson();
-        this.dailyCasesInState = await api.getCasesInState();
+        this.dailyCasesInState = _.uniqBy(await api.getCasesInState(), 'lga_code');
         this.setupLeafletMap();
         this.styleMap();
     }
