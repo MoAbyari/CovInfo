@@ -23,14 +23,14 @@ export default {
     },
     methods: {
         getColor(d) {
-                return  d > 1000 ? 'red' :
+                return  d > 1000 ? '#800026' :
                         d > 500  ? '#BD0026' :
                         d > 200  ? '#E31A1C' :
                         d > 100  ? '#FC4E2A' :
                         d > 50   ? '#FD8D3C' :
                         d > 20   ? '#FEB24C' :
                         d > 10   ? '#FED976' :
-                                    'white';
+                                    '#FFFFFF';
         },
 
         styleMap(feature){
@@ -41,7 +41,7 @@ export default {
             
                 const totalCases = numberOfCasesByLga?.total_cases || 0;
                 console.log("total cases", totalCases);
-                const color = totalCases ? this.getColor(totalCases) : 'brown';
+                const color = totalCases ? this.getColor(totalCases) : 'WHITE';
                 return { 
                     color: color,
                     weight: 0,
