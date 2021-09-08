@@ -15,19 +15,30 @@ export default {
         return{
             NSWGeoJson: [],
             dailyCasesInState: [],
-            center: [-32.5098, 147.4805],
+            center: [-33.8555, 	151.1155],
         }
     },
     methods: {
-        styleMap(features){
-            const lgaCode = features.properties.LGA_CODE19;
-            // console.log(">>>>>>>>>>postecode", postCode);
-            const color = lgaCode === "10500" ? "red" : "blue";
-            return { color: color };
+        styleMap(){
+            // const lgaCode = features.properties.LGA_CODE19;
+            // // console.log(">>>>>>>>>>postecode", postCode);
+            // const color = lgaCode === "14950" ? "red" : "blue";
+            return { color: 'red' };
         },
+
         onEachFeature(feature, layer) {
+        //     let result =
+        //     this.dailyCasesInState.filter(function (object1) {
+        //     return this.NSWGeoJson.features.properties.some(function (object2) {
+        //         if (object1.lga_code === object2.LGA_CODE19){
+        //             return object1.total_cases; 
+        //         } 
+        //     });
+        // });
+           
             if (feature.properties && feature.properties.LGA_NAME19) {
-                layer.bindPopup(feature.properties.LGA_NAME19);
+
+                layer.bindPopup(feature.properties.LGA_NAME19 + feature.properties.LGA_CODE19);
                 layer.on('mouseover', () => { layer.openPopup(); });
                 layer.on('mouseout', () => { layer.closePopup(); });
             }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Vaccinations</h3>
+    <h3>NSW Vaccinations</h3>
     <pie-chart v-if="loaded" :chartData="chartData"></pie-chart>
   </div>
 </template>
