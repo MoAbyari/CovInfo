@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Bar Chart</h3>
+    <h2>Cases by age group</h2>
     <bar-chart v-if="loaded" :chartData="chartData"></bar-chart>
   </div>
 </template>

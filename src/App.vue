@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>This is a Covid info App</h1>
+    <h2>NSW COVID-19 Infographic</h2>
     <Home />
   </div>
 </template>
