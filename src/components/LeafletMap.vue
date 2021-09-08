@@ -71,7 +71,7 @@ export default {
                     maxZoom: 16,
                     minZoom: 7,
                     id: "mapbox/streets-v11",
-                    accessToken: "pk.eyJ1IjoibW9hYnlhcmkiLCJhIjoiY2t0M3k3cngzMGNlcDJvbzJiZjByNHpydyJ9.UsxLK_4u6Ei3Ne_0gMUdrw",
+                    accessToken: "XXX",
                 }).addTo(mapDiv);
 
             L.geoJson(this.NSWGeoJson, {onEachFeature: this.onEachFeature, style: this.styleMap}).addTo(mapDiv);
