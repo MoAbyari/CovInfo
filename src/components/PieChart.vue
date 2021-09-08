@@ -7,8 +7,8 @@ export default {
    data() {
      const dose1 = this.$attrs.chartData.reduce((n, {dose1_count}) => n + dose1_count, 0);
      const dose2 = this.$attrs.chartData.reduce((n, {dose2_count}) => n + dose2_count, 0);
-     const population = this.$attrs.chartData.reduce((n, {population}) => n + population, 0)
-     const nonVaccinated = population - (dose1 + dose2)
+     const population = this.$attrs.chartData.reduce((n, {population}) => n + population, 0);
+     const nonVaccinated = population - (dose1 + dose2);
 
       return {
         chartData: {
