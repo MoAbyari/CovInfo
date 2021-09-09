@@ -1,15 +1,10 @@
 <template lang='html'>
     <div class="home">
         <NewHeader />
-        <hr>
         <VaccinePieChart />
-        <hr>
-        <CasesByAgeChart />
-        <hr>
-        <DeathsByAgeChart />
-        <hr>
         <LeafletMap />
-
+        <CasesByAgeChart />
+        <DeathsByAgeChart />  
     </div>
 </template>
 

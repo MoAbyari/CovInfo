@@ -39,21 +39,21 @@
                         <img class="icon" src="../assets/Hospital.png" alt="hospital-icon">
                         Cases in hospital
                     </p>
-                    <strong>{{ info.NewCases }}</strong>
+                    <strong>{{ info.concurrentHospitalisations }}</strong>
                 </div>
                 <div class="card">
                     <p>
                         <img class="icon" src="../assets/ICU.png" alt="ICU-icon">
                         Cases in ICU
                     </p>
-                    <strong>{{ info.Cases }}</strong>
+                    <strong>{{ info.concurrentHospitalisationsIcu }}</strong>
                 </div>
                 <div class="card">
                     <p>
                         <img class="icon" src="../assets/Tested.png" alt="tested-icon">
-                        Total tested
+                        Today's tested
                     </p>
-                    <strong>{{ info.Deaths }}</strong>
+                    <strong>{{ info.Test_24hrs }}</strong>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@ export default {
 
 .section {
     padding: 0 29px;
-    padding-bottom: 31px;
+    padding-bottom: 21px;
 }
 
 .title {
@@ -155,7 +155,6 @@ export default {
 }
 
 .show-more {
-    margin-bottom: 22px;
     display: flex;
     justify-content: flex-end;
 }
@@ -164,6 +163,10 @@ export default {
     background: none;
     border: 0;
     color: white;
+}
+
+.more-info {
+    margin-top: 20px;
 }
 
 .toggle {

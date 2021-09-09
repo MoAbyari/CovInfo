@@ -1,18 +1,24 @@
 
 <script>
 import { Pie } from 'vue-chartjs';
+import _ from 'lodash';
 
 export default {
    extends: Pie,
    data() {
-     const dose1 = this.$attrs.chartData.reduce((n, {dose1_count}) => n + dose1_count, 0);
-     const dose2 = this.$attrs.chartData.reduce((n, {dose2_count}) => n + dose2_count, 0);
-
-    //  const dose1perc = (dose1 / population * 100);
-    //  const dose2 = (this.$attrs.chartData.reduce((n, {dose2_count}) => n + dose2_count, 0) / population * 100);
-    //  const nonVaccinated = (population - (dose1 + dose2)) / population * 100 ;
-     const population = this.$attrs.chartData.reduce((n, {population}) => n + population, 0);
-     const nonVaccinated = population - (dose1 + dose2);
+    const population = 8166000;
+    // console.log(population);
+    const dose2Population = this.$attrs.chartData.map((i) => {
+       return Math.floor(i.dose2_perc * i.population / 100 );
+     });
+    const dose2 = _.sum(dose2Population) 
+    //  console.log("dose2", dose2);
+    const dose1 = this.$attrs.chartData.reduce((n, {dose1_count}) => n + dose1_count, 0);
+    //  console.log("dose1",dose1);
+    const dose1perc = Math.floor(dose1 / population * 100);
+    const dose2perc = Math.floor(dose2 / population * 100);
+    const nonVaccinated = Math.floor((population - (dose1 + dose2)) / population * 100);
+   
 
       return {
         chartData: {
@@ -32,21 +38,25 @@ export default {
               'rgba(255, 206, 86, 1)',
             ],
             pointBorderColor: '#2554FF',
-            data: [nonVaccinated,dose2,dose1]
+            data: [nonVaccinated,dose2perc,dose1perc]
           }]
         },
         options: {
           legend: {
             display: true,
-            position: 'bottom'
+            position: 'bottom',
+          },
+          layout:{
+            padding: 15
           },
           responsive: true,
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
         }
+
       }
    },
    async mounted () {
-      this.renderChart(this.chartData, this.options)
+      this.renderChart(this.chartData, this.options);
    },
 }
 </script>

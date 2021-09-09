@@ -116,9 +116,18 @@ export default {
 
 <style>
     #mapContainer {
-        width: 300px;
+        /* width: 300px; */
         height: 90vh;
         margin: 0 auto;
+    }
+
+    #container {
+        padding: 0 29px 29px 29px;
+    }
+
+    #container h2 {
+        font-size: 21px;
+        text-align: center;
     }
 
     .legend {

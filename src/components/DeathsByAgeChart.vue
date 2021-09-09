@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <h2>Lives lost by age group</h2>
-    <bar-chart v-if="loaded" :chartData="chartData"></bar-chart>
+  <div class="container">
+    <div>
+      <h2>Lives lost by age group</h2>
+      <bar-chart v-if="loaded" :chartData="chartData"></bar-chart>
+    </div>
   </div>
 </template>
 
@@ -28,4 +30,23 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.container {
+  background-color: #0058A9;
+  padding: 30px 29px;
+}
+
+.container div {
+  background-color: white;
+  padding: 20px 5px;
+  border-radius: 15px;
+}
+
+.container h2 {
+  font-size: 21px;
+  text-align: center;
+  margin-top: 25px;
+}
+</style>
 
