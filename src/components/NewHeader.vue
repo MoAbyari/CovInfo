@@ -4,11 +4,57 @@
             <img src="../assets/logo.png" alt="logo">
             <p>NSW COVID information website</p>
         </div>
-        <h2>NSW Covid Info</h2>
+        <h2 class="title" >NSW Covid Info</h2>
         <div class="section">
-            <div class="cards">
+            <div class="card green">
                 <p>Today's cases</p>
-                <p>{{ info.NewCases }}</p>
+                <strong>{{ info.NewCases }}</strong>
+            </div>
+            <div class="card blue">
+                <p>Total cases</p>
+                <strong>{{ info.Cases }}</strong>
+            </div>
+            <div class="card pink">
+                <p>Total deaths</p>
+                <strong>{{ info.Deaths }}</strong>
+            </div>
+
+            <div class="show-more">
+                <button 
+                v-on:click="toggleShowMore">
+                    <span v-if="showMore" class="show-less-toggle toggle">
+                        show less
+                        <img src="../assets/down-chevron.png" alt="more">
+                    </span>
+                    <span v-else class="show-more-toggle toggle">
+                        show more
+                        <img src="../assets/down-chevron.png" alt="less">
+                    </span>
+                </button>
+            </div>
+
+            <div class="more-info" v-if="showMore">
+                <div class="card">
+                    <p>
+                        <img class="icon" src="../assets/Hospital.png" alt="hospital-icon">
+                        Cases in hospital
+                    </p>
+                    <strong>{{ info.NewCases }}</strong>
+                </div>
+                <div class="card">
+                    <p>
+                        <img class="icon" src="../assets/ICU.png" alt="ICU-icon">
+                        Cases in ICU
+                    </p>
+                    <strong>{{ info.Cases }}</strong>
+                </div>
+                <div class="card">
+                    <p>
+                        <img class="icon" src="../assets/Tested.png" alt="tested-icon">
+                        Total tested
+                    </p>
+                    <strong>{{ info.Deaths }}</strong>
+                </div>
             </div>
         </div>
        
@@ -23,7 +69,13 @@ export default {
     name: 'Header',
     data() {
         return {
-            info: []
+            info: [],
+            showMore: false
+        }
+    },
+    methods: {
+        toggleShowMore: function() {
+            this.showMore = !this.showMore;
         }
     },
     async mounted() {
@@ -38,6 +90,12 @@ export default {
     color: white;
 }
 
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .logo img {
     width: 100px;
     margin-top: 50px;
@@ -45,20 +103,83 @@ export default {
 }
 
 .section {
-    padding: 15px;
+    padding: 0 29px;
+    padding-bottom: 31px;
 }
 
-.cards {
-    background-color: #E1FAD8;
-    border-radius: 3%;
+.title {
+    font-size: 21px;
+    margin-top: 50px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
     display: flex;
-    justify-content: center;
     color: black;
+    padding: 0 20px;
+    height: 82px;
+    margin-bottom: 22px;
     align-items: center;
-    padding: 20px;
 }
 
-.catrds p {
+.green {
+    background-color: #E1FAD8;
+}
+
+.blue {
+    background-color: #CDFFF9;
+}
+
+.pink {
+    background-color: #FFEEEE;
+}
+
+.card p {
     margin: 0;
+    flex: 1;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 32px;
+    margin-right: 5px;
+}
+
+.card strong {
+    font-size: 24px;
+}
+
+.show-more {
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.show-more button {
+    background: none;
+    border: 0;
+    color: white;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+}
+
+.show-less-toggle img {
+    transform: rotateZ(180deg);
+    transition: 300ms linear;
+    margin-left: 5px;
+}
+
+.show-more-toggle img {
+    transform: rotateZ(0deg);
+    transition: 300ms linear;
+    margin-left: 5px;
 }
 </style>
