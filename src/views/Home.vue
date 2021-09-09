@@ -5,6 +5,7 @@
         <LeafletMap />
         <CasesByAgeChart />
         <DeathsByAgeChart />  
+        <UsefulInfo />  
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import VaccinePieChart from '@/components/VaccinePieChart.vue';
 import CasesByAgeChart from '@/components/CasesByAgeChart.vue';
 import DeathsByAgeChart from '@/components/DeathsByAgeChart.vue';
 import LeafletMap from '@/components/LeafletMap.vue';
+import UsefulInfo from '@/components/UsefulInfo.vue';
 
 
 export default {
@@ -24,6 +26,7 @@ export default {
         LeafletMap,
         VaccinePieChart,
         DeathsByAgeChart,
+        UsefulInfo
     }
 }
 </script>
