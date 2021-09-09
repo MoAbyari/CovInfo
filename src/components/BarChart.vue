@@ -26,6 +26,12 @@ export default {
               ticks: {
                 beginAtZero: true
               },
+              scaleLabel: {
+                display: true,
+                labelString: 'Cases',
+                fontSize: 18,
+                // fontStyle: 'bold'
+              },
               gridLines: {
                 display: true
               }
@@ -33,7 +39,13 @@ export default {
             xAxes: [{
               gridLines: {
                 display: false
-              }
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Age Group',
+                fontSize: 18,
+                // fontStyle: 'bold'
+              },
             }]
           },
           legend: {
