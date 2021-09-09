@@ -116,18 +116,13 @@ export default {
 
 <style>
     #mapContainer {
-        width: 300px;
-        height: 90vh;
+        width: 95vw;
+        height: 95vh;
         margin: 0 auto;
-        /* position: absolute;
-        width: 442px;
-        height: 477px;
-        left: -13px;
-        top: 1444px; */
     }
 
     .legend {
-        line-height: 18px;
+        line-height: 14px;
         color: rgb(35, 29, 29);
         background-color: rgb(255, 255, 255, 0.45);
         padding: 5px 10px;
@@ -135,11 +130,12 @@ export default {
     }
 
     .circle {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
         float: left;
         margin-right: 8px;
         opacity: 1;
         border-radius: 50%;
+        border: 1px solid black ;
     }   
 </style>

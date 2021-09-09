@@ -44,11 +44,15 @@ export default {
         options: {
           legend: {
             display: true,
-            position: 'bottom'
+            position: 'bottom',
+          },
+          layout:{
+            padding: 30
           },
           responsive: true,
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
         }
+
       }
    },
    async mounted () {

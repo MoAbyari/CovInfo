@@ -46,7 +46,7 @@ export default {
 
   }
   .pie-chart-Ellipse2 {
-    margin-top: 31px;
+    margin-top: -10px;
 
 
   } 
