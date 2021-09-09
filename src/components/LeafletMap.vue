@@ -1,6 +1,6 @@
 <template>
  <div id="container">
-     <h2>Map of NSW COVID-19 CASE LOCATION</h2>
+     <h2>Map of NSW COVID-19 case locations</h2>
    <div id="mapContainer"></div>
  </div>
 </template>
@@ -116,13 +116,22 @@ export default {
 
 <style>
     #mapContainer {
-        width: 95vw;
-        height: 95vh;
+        /* width: 300px; */
+        height: 90vh;
         margin: 0 auto;
     }
 
+    #container {
+        padding: 0 29px 29px 29px;
+    }
+
+    #container h2 {
+        font-size: 21px;
+        text-align: center;
+    }
+
     .legend {
-        line-height: 14px;
+        line-height: 18px;
         color: rgb(35, 29, 29);
         background-color: rgb(255, 255, 255, 0.45);
         padding: 5px 10px;
@@ -130,8 +139,8 @@ export default {
     }
 
     .circle {
-        width: 14px;
-        height: 14px;
+        width: 18px;
+        height: 18px;
         float: left;
         margin-right: 8px;
         opacity: 1;

@@ -7,14 +7,14 @@ export default {
    extends: Pie,
    data() {
     const population = 8166000;
-    console.log(population);
+    // console.log(population);
     const dose2Population = this.$attrs.chartData.map((i) => {
        return Math.floor(i.dose2_perc * i.population / 100 );
      });
     const dose2 = _.sum(dose2Population) 
-     console.log("dose2", dose2);
+    //  console.log("dose2", dose2);
     const dose1 = this.$attrs.chartData.reduce((n, {dose1_count}) => n + dose1_count, 0);
-     console.log("dose1",dose1);
+    //  console.log("dose1",dose1);
     const dose1perc = Math.floor(dose1 / population * 100);
     const dose2perc = Math.floor(dose2 / population * 100);
     const nonVaccinated = Math.floor((population - (dose1 + dose2)) / population * 100);
