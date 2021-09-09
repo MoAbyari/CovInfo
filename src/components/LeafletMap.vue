@@ -136,6 +136,5 @@ export default {
         margin-right: 8px;
         opacity: 1;
         border-radius: 50%;
-        border: 1px solid black ;
     }   
 </style>
