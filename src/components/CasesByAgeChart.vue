@@ -34,7 +34,7 @@ export default {
 <style scoped>
 .container {
   background-color: #0058A9;
-  padding: 30px 29px;
+  padding: 80px 29px 40px 29px;
 }
 
 .container div {
