@@ -1,5 +1,5 @@
 <template>
-  <div class="pie-chart">
+  <div class="pie-chart-container">
     <div class= "pie-chart-title">
       <h2>NSW VACCINATION STATS</h2>
     </div>
@@ -34,9 +34,10 @@ export default {
 </script>
 
 <style>
-  .pie-chart {
+  .pie-chart-container {
     max-height: 90vh;
     max-width: 90vh;
+    margin: 0 auto;
   } 
 
   .pie-chart-title {
@@ -47,6 +48,7 @@ export default {
   }
   .pie-chart-Ellipse2 {
     margin-top: -10px;
+    margin: 0 auto;
 
 
   } 

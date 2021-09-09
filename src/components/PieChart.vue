@@ -47,7 +47,7 @@ export default {
             position: 'bottom',
           },
           layout:{
-            padding: 30
+            padding: 15
           },
           responsive: true,
           maintainAspectRatio: false,
