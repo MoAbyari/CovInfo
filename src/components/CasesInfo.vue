@@ -23,8 +23,8 @@
     <div class="content">
       <img class="right floated mini ui image" src="../assets/Tested.png">
       <div class="header">
-        {{info.Tested}}
-        <h4>Total Tested</h4>
+        {{info.Test_24hrs}}
+        <h4>Today's Tests</h4>
         <!-- <h7>Today:{{info.Test_24hrs}} </h7> -->
       </div>
     </div>

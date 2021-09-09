@@ -1,17 +1,11 @@
 <template lang='html'>
     <div>
         <Header />
-        <hr>
         <CasesInfo />
-        <hr>
-        <VaccinePieChart />
-        <hr>
-        <CasesByAgeChart />
-        <hr>
-        <DeathsByAgeChart />
-        <hr>
         <LeafletMap />
-
+        <VaccinePieChart />
+        <CasesByAgeChart />
+        <DeathsByAgeChart />  
     </div>
 </template>
 
@@ -27,12 +21,12 @@ import LeafletMap from '@/components/LeafletMap.vue';
 export default {
     name: 'Home',
     components: {
-        Header,
-        CasesInfo,
-        CasesByAgeChart,
-        LeafletMap,
-        VaccinePieChart,
-        DeathsByAgeChart,
+    Header,
+    CasesInfo,
+    CasesByAgeChart,
+    LeafletMap,
+    VaccinePieChart,
+    DeathsByAgeChart,
     }
 }
 </script>
