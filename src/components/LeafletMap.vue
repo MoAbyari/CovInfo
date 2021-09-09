@@ -116,7 +116,7 @@ export default {
 
 <style>
     #mapContainer {
-        width: 700px;
+        width: 300px;
         height: 90vh;
         margin: 0 auto;
     }
