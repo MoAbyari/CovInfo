@@ -1,5 +1,6 @@
 <template>
-    <div class="useful-links"> 
+    <div class="useful-links">
+        <h2>Related information</h2>
         <div class="usefullike-href">
             <a href="https://www.nsw.gov.au/covid-19/health-and-wellbeing/covid-19-vaccination-nsw/get-your-covid-19-vaccination-nsw" > 
                 <button class="ui right labeled icon button" style="text-align:left; width: 80vw; background-color: white; border: 1px solid #757272;" >
@@ -37,16 +38,14 @@
         /* width: 90vw; */
         margin: 0 auto;
         display: flex;
-        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        padding: 30px 0px 30px 20px;
-         background-color: rgb(156 153 153 / 68%);
+        background-color: "white";
+        padding-top: 60px;
+        padding-bottom: 30px;
     }
     .usefullike-href{
-        padding: 5px;
-        text-align: left;
-        margin: 0 auto;
-       
+        padding-bottom: 5px;
     }
 
 </style>
