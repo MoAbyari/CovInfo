@@ -38,7 +38,7 @@ export default {
     max-height: 90vh;
     max-width: 90vh;
     margin: 0 auto;
-    padding: 60px 29px 7px 29px;
+    padding: 60px 29px 30px 29px;
   } 
 
   .pie-chart-container h2 {

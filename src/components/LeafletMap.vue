@@ -121,7 +121,7 @@ export default {
     }
 
     #container {
-        padding: 60px 29px 29px 29px;
+        padding: 30px 29px 60px 29px;
     }
 
     #container h2 {
