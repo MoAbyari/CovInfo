@@ -19,7 +19,7 @@ export default {
 
       return {
         chartData: {
-          labels: ["Non-Vaccinated", "Fully Vaccinated", "1st Dose-Vaccinated"
+          labels: ["Non-Vaccinated (%)", "Fully Vaccinated (%)", "1st Dose-Vaccinated (%)"
           ],
           datasets: [{
             label: 'Pie Chart',
@@ -41,7 +41,7 @@ export default {
         options: {
           legend: {
             display: true,
-            position: 'bottom',
+            position: 'bottom'
           },
           layout:{
             padding: 15
