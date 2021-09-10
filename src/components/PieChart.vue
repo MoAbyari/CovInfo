@@ -41,7 +41,7 @@ export default {
         options: {
           legend: {
             display: true,
-            position: 'bottom',
+            position: 'bottom'
           },
           layout:{
             padding: 15
