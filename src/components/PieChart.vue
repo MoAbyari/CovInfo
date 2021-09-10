@@ -19,7 +19,7 @@ export default {
 
       return {
         chartData: {
-          labels: ["Non-Vaccinated", "Fully Vaccinated", "1st Dose-Injected"
+          labels: ["Non-Vaccinated (%)", "Fully Vaccinated (%)", "1st-dose Vaccinated (%)"
           ],
           datasets: [{
             label: 'Pie Chart',
@@ -35,7 +35,7 @@ export default {
               'rgba(255, 206, 86, 1)',
             ],
             pointBorderColor: '#2554FF',
-            data: [nonVaccinated,dose2perc,dose1perc]
+            data: [nonVaccinated, dose2perc, dose1perc]
           }]
         },
         options: {
