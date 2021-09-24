@@ -15,7 +15,7 @@ export default {
     const dose1perc = Math.floor(dose1 / population * 100);
     const dose2perc = Math.floor(dose2 / population * 100);
     const nonVaccinated = Math.floor((population - (dose1 + dose2)) / population * 100);
-   
+   console.log(dose2Population);
 
       return {
         chartData: {
