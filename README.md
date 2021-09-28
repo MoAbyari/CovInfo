@@ -59,10 +59,8 @@ Live demo: https://cov-info-app.herokuapp.com
 
 ## Contributor 
 
-* **Mo Abyari** https://github.com/MoAbyari
 * **Hess Taba** https://github.com/hesstab
-
-## Author 
 * **Mo Abyari** https://github.com/MoAbyari
+
 
 
