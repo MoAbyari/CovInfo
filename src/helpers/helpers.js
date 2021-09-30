@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// const baseURL = 'http://localhost:3000'; 
+// const baseURL = 'http://localhost:3000';
 const baseURL = 'https://dry-inlet-56943.herokuapp.com';
 
 const handleError = (fn) => (...params) =>
