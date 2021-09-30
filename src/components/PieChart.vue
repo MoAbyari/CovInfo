@@ -1,21 +1,16 @@
 
 <script>
 import { Pie } from 'vue-chartjs';
-import _ from 'lodash';
 
 export default {
    extends: Pie,
    data() {
-    const population = 8166000;
-    const dose2Population = this.$attrs.chartData.map((i) => {
-       return Math.floor(i.dose2_perc * i.population / 100 );
-     });
-    const dose2 = _.sum(dose2Population) 
+    const population = this.$attrs.chartData.reduce((n, {population}) => n + population, 0);
     const dose1 = this.$attrs.chartData.reduce((n, {dose1_count}) => n + dose1_count, 0);
-    const dose1perc = Math.floor(dose1 / population * 100);
+    const dose2 = this.$attrs.chartData.reduce((n, {dose2_count}) => n + dose2_count, 0);
+    const dose1perc = Math.floor( (dose1 - dose2) / population * 100);
     const dose2perc = Math.floor(dose2 / population * 100);
-    const nonVaccinated = Math.floor((population - (dose1 + dose2)) / population * 100);
-   console.log(dose2Population);
+    const nonVaccinated = Math.floor( (population - dose1) / population * 100);
 
       return {
         chartData: {
