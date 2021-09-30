@@ -2,7 +2,7 @@
     <div class="info-section">
         <div class="logo">
             <img src="../assets/logo.png" alt="logo">
-            <p>NSW COVID information website</p>
+            <p>NSW COVID information website.</p>
         </div>
         <h2 class="title" >NSW COVID Info</h2>
         <div class="section">
